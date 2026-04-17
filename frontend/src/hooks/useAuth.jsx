@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from 'react'
 
+const API = 'https://baileys-stocksight-production.up.railway.app/api'
 const AuthContext = createContext(null)
 
 export function AuthProvider({ children }) {
@@ -9,7 +10,7 @@ export function AuthProvider({ children }) {
   useEffect(() => {
     const token = localStorage.getItem('token')
     if (!token) { setLoading(false); return }
-    fetch('/api/auth/me', { headers: { Authorization: `Bearer ${token}` } })
+    fetch(`${API}/auth/me`, { headers: { Authorization: `Bearer ${token}` } })
       .then(r => r.json())
       .then(data => {
         if (data.email) setUser({ ...data, token })
@@ -20,7 +21,7 @@ export function AuthProvider({ children }) {
   }, [])
 
   const login = async (email, password) => {
-    const r = await fetch('/api/auth/login', {
+    const r = await fetch(`${API}/auth/login`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, password })
@@ -33,7 +34,7 @@ export function AuthProvider({ children }) {
   }
 
   const register = async (email, password, name) => {
-    const r = await fetch('/api/auth/register', {
+    const r = await fetch(`${API}/auth/register`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, password, name })
@@ -52,7 +53,7 @@ export function AuthProvider({ children }) {
   const isExpired = user?.plan === 'expired'
 
   if (loading) return (
-    <div style={{ minHeight:'100vh', background:'var(--bg)', display:'flex', alignItems:'center', justifyContent:'center', color:'var(--muted)', fontSize:13 }}>
+    <div style={{ minHeight:'100vh', background:'#0a0b0d', display:'flex', alignItems:'center', justifyContent:'center', color:'#6b7280', fontSize:13 }}>
       Loading...
     </div>
   )
