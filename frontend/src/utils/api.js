@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const BASE = import.meta.env.VITE_API_URL || '/api'
+const BASE = 'https://baileys-stocksight-production.up.railway.app/api'
 
 export const api = axios.create({ baseURL: BASE })
 
