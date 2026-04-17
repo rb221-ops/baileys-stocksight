@@ -1,14 +1,1 @@
-{
-  "baileyriley221@gmail.com": {
-    "name": "Riley Bailey",
-    "email": "baileyriley221@gmail.com",
-    "password": "84cde9698d13d1b7fbfb01a25e035184c855cfa2fe79fc281267f036812487cd",
-    "token": "ce97ab9e9d3f4427107041c78ec404f9f9b0aa00fab4833196a53257021b6ebf",
-    "plan": "pro",
-    "trial_ends": "2026-04-23T13:32:46.568862",
-    "stripe_customer_id": null,
-    "stripe_subscription_id": null,
-    "created_at": "2026-04-16T13:32:46.568874",
-    "is_admin": true
-  }
-}
+{}
